@@ -56,6 +56,7 @@ function setItemToLS(text) {
 }
 
 
+/* Delete Item From Local Storage */
 function deleteItemFromLS(text) {
     items = getItemsFromLS();
     items.forEach(function(item, index) {
@@ -67,6 +68,7 @@ function deleteItemFromLS(text) {
 }
 
 
+/* Create Item */
 function createItem(text) {
     /* Create 'li */
     const li = document.createElement('li');
@@ -92,17 +94,19 @@ function addNewItem(e) {
 
     if (input.value === '') {
         alert('Add New Item !');
+    } else {
+        /* Create Item */
+        createItem(input.value);
+
+        /* Save to Local Storage */
+        setItemToLS(input.value);
+
+
+        /* Clear Input */
+        input.value = '';
     }
 
-    /* Create Item */
-    createItem(input.value);
 
-    /* Save to Local Storage */
-    setItemToLS(input.value);
-
-
-    /* Clear Input */
-    input.value = '';
 
 
 
